@@ -1,7 +1,7 @@
 # Samurai Runner
 
-Un petit jeu 2D développé avec **Godot Engine**.  
-Il s’agit d’un **platformer** où le joueur incarne un samouraï capable de courir, sauter et combattre des monstres.  
+
+Il s’agit d’un **platformer** où le joueur incarne un samouraï capable de courir, sauter et combattre des monstres avec un changement de scene (maps)
 
 ## Fonctionnalités prévues
 - Déplacements fluides (courir, sauter)  
@@ -12,9 +12,5 @@ Il s’agit d’un **platformer** où le joueur incarne un samouraï capable de 
 ## Objectif
 Créer un gameplay simple et amusant qui mélange rapidité, précision et combats.  
 
-## Technologies
-- **Moteur de jeu** : Godot 4  
-- **Langage** : GDScript  
-
 ---
-✨ Projet en cours de développement
+
