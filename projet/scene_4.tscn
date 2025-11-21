@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx01qw6vr6ka5"]
+[gd_scene load_steps=5 format=3 uid="uid://bx01qw6vr6ka5"]
 
 [ext_resource type="Script" uid="uid://cqvbw2yfittyr" path="res://scene_4.gd" id="1_roa47"]
 [ext_resource type="Texture2D" uid="uid://esq05df07rw2" path="res://Player/SoundEffect/VictoryRoyaleSlate.png" id="2_mbyq8"]
+[ext_resource type="PackedScene" uid="uid://qj41lilbuk51" path="res://pause_menu.tscn" id="4_b5w26"]
 [ext_resource type="AudioStream" uid="uid://buwyksrd5gf8m" path="res://Player/SoundEffect/victory-royale.mp3" id="13_7x517"]
 
 [node name="scene_4" type="Node2D"]
@@ -19,3 +20,12 @@ texture = ExtResource("2_mbyq8")
 [node name="Victory" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_7x517")
 volume_db = 9.905
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_b5w26")]
+offset_left = 208.0
+offset_top = 195.0
+offset_right = -410.0
+offset_bottom = -160.0
+metadata/_edit_use_anchors_ = true

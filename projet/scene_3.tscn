@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://b11jqy7v2h4f5"]
+[gd_scene load_steps=73 format=3 uid="uid://b11jqy7v2h4f5"]
 
 [ext_resource type="Script" uid="uid://cs0qjpvweh6vr" path="res://scene_3.gd" id="1_ln08p"]
 [ext_resource type="Script" uid="uid://xhyh2ynwnluu" path="res://player.gd" id="1_syu4f"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://urcf7nmr1ihj" path="res://Player/sprites/Capture_d_écran_2025-10-17_102621-removebg-preview.png" id="17_yliei"]
 [ext_resource type="Texture2D" uid="uid://pf2t28cf4ban" path="res://Player/sprites/Capture_d_écran_2025-10-17_102903-removebg-preview.png" id="18_628xh"]
 [ext_resource type="Texture2D" uid="uid://jll38ls1yf6m" path="res://Player/SoundEffect/Capture d’écran 2025-11-20 221702.png" id="20_628xh"]
+[ext_resource type="PackedScene" uid="uid://qj41lilbuk51" path="res://pause_menu.tscn" id="21_628xh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjfui"]
 size = Vector2(63, 124)
@@ -645,5 +646,14 @@ texture = ExtResource("20_628xh")
 position = Vector2(1750.13, 616)
 scale = Vector2(1.09803, 1)
 texture = ExtResource("20_628xh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_628xh")]
+offset_left = 208.0
+offset_top = 195.0
+offset_right = -410.0
+offset_bottom = -160.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]

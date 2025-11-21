@@ -1,7 +1,8 @@
-[gd_scene load_steps=75 format=3 uid="uid://bwvx1s7ohtdsm"]
+[gd_scene load_steps=76 format=3 uid="uid://bwvx1s7ohtdsm"]
 
 [ext_resource type="Texture2D" uid="uid://ceegme823y0eu" path="res://Player/sprites/attack.png" id="1_cxr5p"]
 [ext_resource type="Texture2D" uid="uid://bf404okwjggcb" path="res://Player/bg.jpg" id="1_dtqjt"]
+[ext_resource type="Script" uid="uid://bjltb82ew1wjh" path="res://scene_1.gd" id="1_rv870"]
 [ext_resource type="Script" uid="uid://xhyh2ynwnluu" path="res://player.gd" id="1_tdg3f"]
 [ext_resource type="Texture2D" uid="uid://bht34c5l564x2" path="res://Player/sprites/idle.png" id="1_xhfnw"]
 [ext_resource type="Texture2D" uid="uid://bkeyqhy6rhgpu" path="res://Player/sprites/run.png" id="2_kpjcp"]
@@ -405,6 +406,7 @@ animations = [{
 size = Vector2(58, 90)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_rv870")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(575.563, 324.25)
@@ -527,10 +529,14 @@ stream = ExtResource("11_r3kul")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("16_jatw7")]
-offset_left = 208.0
-offset_top = 195.0
-offset_right = -410.0
-offset_bottom = -160.0
+anchors_preset = -1
+anchor_top = 0.0216049
+anchor_right = 0.999644
+anchor_bottom = 1.00048
+offset_left = 127.0
+offset_top = 177.0
+offset_right = -297.59
+offset_bottom = -119.31
 metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]
