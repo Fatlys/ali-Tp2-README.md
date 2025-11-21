@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @export var speed = 100
 @export var patrol_delay = 1.0
-@export var next_scene_path := "res://scene_2.tscn" # ← nom corrigé ici
 
 @onready var sprite = $AnimatedSprite2D
+@onready var death_sound = $DeathS
 
 var direction = 1
 var is_dead = false
@@ -19,11 +19,10 @@ func _change_direction_loop():
 			direction *= -1
 			sprite.flip_h = direction < 0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_dead:
 		velocity = Vector2.ZERO
 		return
-
 	velocity.x = direction * speed
 	move_and_slide()
 	sprite.play("ennemi-sprint")
@@ -31,13 +30,14 @@ func _physics_process(delta):
 func kill():
 	if is_dead:
 		return
-
 	is_dead = true
+	
+	# Jouer le son de mort
+	if death_sound:
+		death_sound.play()
+	
 	sprite.play("ennemi-death")
 	await sprite.animation_finished
-
-	# Changer de scène après la mort
-	if ResourceLoader.exists(next_scene_path):
-		get_tree().change_scene_to_file(next_scene_path)
-	else:
-		print("⚠️ La scène suivante n'existe pas :", next_scene_path)
+	
+	# L'ennemi disparaît simplement
+	queue_free()

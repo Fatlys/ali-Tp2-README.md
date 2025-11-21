@@ -388,7 +388,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ctcj5")
 }],
-"loop": true,
+"loop": false,
 "name": &"ennemi-death",
 "speed": 5.0
 }, {
@@ -402,7 +402,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rv870"]
-size = Vector2(69, 95)
+size = Vector2(58, 90)
 
 [node name="Main" type="Node2D"]
 
@@ -472,6 +472,7 @@ shape = SubResource("RectangleShape2D_wi0c6")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Sol"]
 position = Vector2(583.25, 616)
+rotation = -0.00352492
 shape = SubResource("RectangleShape2D_hp6x6")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Sol"]
@@ -504,15 +505,24 @@ shape = SubResource("RectangleShape2D_jatw7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ennemi"]
 sprite_frames = SubResource("SpriteFrames_xjpfi")
-animation = &"ennemi-sprint"
-frame_progress = 0.943915
+animation = &"ennemi-death"
 
 [node name="Area2D2" type="Area2D" parent="ennemi"]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ennemi/Area2D2"]
-position = Vector2(1.5, 4.5)
+position = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_rv870")
+
+[node name="TextEdit" type="TextEdit" parent="ennemi/Area2D2"]
+offset_left = -68.0
+offset_top = -94.0
+offset_right = 66.0
+offset_bottom = -58.0
+text = "SAUTE SUR MOI"
+
+[node name="DeathS" type="AudioStreamPlayer2D" parent="ennemi"]
+stream = ExtResource("11_r3kul")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -521,6 +531,7 @@ offset_left = 208.0
 offset_top = 195.0
 offset_right = -410.0
 offset_bottom = -160.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="ennemi/Area2D2" to="ennemi" method="_on_area_2d_2_body_entered"]

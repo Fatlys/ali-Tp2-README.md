@@ -21,14 +21,14 @@ func _ready():
 	area.body_entered.connect(_on_area_body_entered)
 	area.get_node("CollisionShape2D").disabled = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_attacking:
 		move_and_slide()
 		return
 
 	# Gravité
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += gravity * _delta
 	else:
 		velocity.y = 0
 
@@ -74,15 +74,25 @@ func _attack():
 	await sprite.animation_finished
 	is_attacking = false
 
-# Mort avec shake + recul + flash + son + respawn immédiat
 func _on_area_body_entered(body):
 	if body.is_in_group("ennemi"):
-		velocity = Vector2.ZERO
-		if death_sound:
-			death_sound.play()
-		await shake_and_recoil()
-		await flash_red()
-		global_position = start_position
+		# Détection du saut sur la tête
+		var is_falling = velocity.y > 0
+		var is_above = global_position.y + 10 < body.global_position.y
+
+		if is_falling and is_above:
+			if body.has_method("kill"):
+				body.kill()
+
+			# Correction du warning integer division (on met .0)
+			velocity.y = jump_force * 0.5
+		else:
+			velocity = Vector2.ZERO
+			if death_sound:
+				death_sound.play()
+			await shake_and_recoil()
+			await flash_red()
+			global_position = start_position
 
 func shake_and_recoil():
 	if camera:
@@ -91,11 +101,10 @@ func shake_and_recoil():
 			camera.offset = Vector2(randf()*20-10, randf()*20-10)
 			await get_tree().create_timer(0.05).timeout
 		camera.offset = original_pos
-		# recul du Player
 		global_position += Vector2(-50, 0)
 
 func flash_red():
 	var original_modulate = sprite.modulate
-	sprite.modulate = Color(1, 0, 0)  # rouge
+	sprite.modulate = Color(1, 0, 0)
 	await get_tree().create_timer(0.2).timeout
 	sprite.modulate = original_modulate
