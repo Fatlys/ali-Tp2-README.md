@@ -104,10 +104,6 @@ Collectez toutes les pièces d'or éparpillées dans le niveau et éliminez les 
 
 Les sprites du personnage principal (ninja) et des ennemis proviennent de CraftPix.net, une plateforme proposant des assets 2D de qualité professionnelle pour le développement de jeux vidéo.
 
-**Référence:**
-```
-CraftPix.net. (n.d.). 2D Game Assets. https://craftpix.net/
-```
 
 #### Backgrounds et environnements
 
@@ -116,11 +112,6 @@ CraftPix.net. (n.d.). 2D Game Assets. https://craftpix.net/
 
 Les arrière-plans et éléments d'environnement ont été créés à l'aide de l'intelligence artificielle DALL-E via ChatGPT.
 
-**Référence:**
-```
-OpenAI. (2024). ChatGPT with DALL-E [Large language model with image generation]. 
-https://chat.openai.com/
-```
 
 ---
 
@@ -132,11 +123,6 @@ https://chat.openai.com/
 
 Tous les effets sonores (sauts, attaques, dégâts, game over) proviennent de la bibliothèque audio libre de droits de Pixabay.
 
-**Référence:**
-```
-Pixabay. (n.d.). Royalty Free Sound Effects. https://pixabay.com/sound-effects/
-Licence: https://pixabay.com/service/license-summary/
-```
 
 ---
 
