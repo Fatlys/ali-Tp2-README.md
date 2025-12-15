@@ -1,9 +1,5 @@
 # 🥷 Ninja's Adventure
 
-![Godot Engine](https://img.shields.io/badge/Godot-4.0-478cbf?logo=godot-engine&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-PC-blue)
-![License](https://img.shields.io/badge/License-Academic%20Project-green)
-![Status](https://img.shields.io/badge/Status-Complete-success)
 
 > Un jeu de plateforme d'action épique où vous incarnez Kage, un ninja d'élite en quête des pièces sacrées du temple d'Akatsuki.
 
